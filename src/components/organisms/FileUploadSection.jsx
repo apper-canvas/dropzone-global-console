@@ -5,6 +5,7 @@ import DropZone from '@/components/molecules/DropZone';
 import FileCard from '@/components/molecules/FileCard';
 import UploadStats from '@/components/molecules/UploadStats';
 import FilePreviewModal from '@/components/molecules/FilePreviewModal';
+import ShareDialog from '@/components/molecules/ShareDialog';
 import { fileService, uploadService } from '@/services';
 
 const FileUploadSection = () => {
@@ -12,6 +13,8 @@ const FileUploadSection = () => {
   const [uploadSession, setUploadSession] = useState(null);
   const [previewFile, setPreviewFile] = useState(null);
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const [shareFile, setShareFile] = useState(null);
+  const [isShareOpen, setIsShareOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleFilesSelected = async (selectedFiles) => {
@@ -99,11 +102,15 @@ const FileUploadSection = () => {
     });
   };
 
-  const handlePreviewFile = (file) => {
+const handlePreviewFile = (file) => {
     setPreviewFile(file);
     setIsPreviewOpen(true);
   };
 
+  const handleShareFile = (file) => {
+    setShareFile(file);
+    setIsShareOpen(true);
+  };
   const calculateStats = () => {
     const totalFiles = files.length;
     const completedFiles = files.filter(f => f.status === 'completed').length;
@@ -168,10 +175,11 @@ const FileUploadSection = () => {
                     transition={{ delay: index * 0.1 }}
                     layout
                   >
-                    <FileCard
+<FileCard
                       file={file}
                       onRemove={handleRemoveFile}
                       onPreview={handlePreviewFile}
+                      onShare={handleShareFile}
                       showActions={file.status !== 'uploading'}
                     />
                   </motion.div>
@@ -182,11 +190,18 @@ const FileUploadSection = () => {
         )}
       </AnimatePresence>
 
-      {/* File Preview Modal */}
+{/* File Preview Modal */}
       <FilePreviewModal
         file={previewFile}
         isOpen={isPreviewOpen}
         onClose={() => setIsPreviewOpen(false)}
+      />
+
+      {/* Share Dialog */}
+      <ShareDialog
+        file={shareFile}
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
       />
     </div>
   );

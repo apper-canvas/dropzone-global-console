@@ -4,11 +4,11 @@ import ApperIcon from '@/components/ApperIcon';
 import FileIcon from '@/components/atoms/FileIcon';
 import ProgressBar from '@/components/atoms/ProgressBar';
 import Button from '@/components/atoms/Button';
-
 const FileCard = ({ 
   file, 
   onRemove, 
   onPreview,
+  onShare,
   showActions = true,
   className = '' 
 }) => {
@@ -64,9 +64,9 @@ const FileCard = ({
             <h3 className="text-white font-medium truncate text-sm">
               {file.name}
             </h3>
-            <div className="flex items-center gap-2">
+<div className="flex items-center gap-2">
               {getStatusIcon()}
-{showActions && isHovered && (
+              {showActions && isHovered && (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -79,6 +79,15 @@ const FileCard = ({
                     onClick={() => onPreview?.(file)}
                     className="p-1"
                   />
+                  {file.status === 'completed' && file.url && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      icon="Share"
+                      onClick={() => onShare?.(file)}
+                      className="p-1"
+                    />
+                  )}
                   <Button
                     variant="ghost"
                     size="sm"
