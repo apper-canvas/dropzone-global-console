@@ -1,13 +1,16 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
-import ApperIcon from '@/components/ApperIcon';
-import Button from '@/components/atoms/Button';
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
+import ApperIcon from "@/components/ApperIcon";
+import Button from "@/components/atoms/Button";
 
-// Set up PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+// Configure PDF.js worker for Vite
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.js',
+  import.meta.url
+).toString();
 
-const FilePreviewModal = ({ file, isOpen, onClose }) => {
+export default function FilePreviewModal({ file, isOpen, onClose }) {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -267,5 +270,3 @@ const FilePreviewModal = ({ file, isOpen, onClose }) => {
     </AnimatePresence>
   );
 };
-
-export default FilePreviewModal;
