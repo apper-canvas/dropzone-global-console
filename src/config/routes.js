@@ -1,4 +1,5 @@
 import Home from '@/components/pages/Home';
+import Dashboard from '@/components/pages/Dashboard';
 
 export const routes = {
   home: {
@@ -7,6 +8,13 @@ export const routes = {
     path: '/',
     icon: 'Upload',
     component: Home
+  },
+  dashboard: {
+    id: 'dashboard',
+    label: 'Dashboard',
+    path: '/dashboard',
+    icon: 'BarChart3',
+    component: Dashboard
   }
 };
 
