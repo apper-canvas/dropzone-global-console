@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "name": "presentation.pdf",
+    "size": 2468135,
+    "type": "application/pdf",
+    "lastModified": 1698765432000,
+    "uploadProgress": 100,
+    "status": "completed",
+    "url": "https://example.com/files/presentation.pdf"
+  },
+  {
+    "Id": 2,
+    "name": "vacation-photo.jpg",
+    "size": 1847295,
+    "type": "image/jpeg",
+    "lastModified": 1698751832000,
+    "uploadProgress": 100,
+    "status": "completed",
+    "url": "https://example.com/files/vacation-photo.jpg"
+  },
+  {
+    "Id": 3,
+    "name": "project-files.zip",
+    "size": 15728640,
+    "type": "application/zip",
+    "lastModified": 1698738232000,
+    "uploadProgress": 100,
+    "status": "completed",
+    "url": "https://example.com/files/project-files.zip"
+  }
+]

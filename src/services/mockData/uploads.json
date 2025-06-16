@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "totalFiles": 3,
+    "totalSize": 20044070,
+    "uploadedSize": 20044070,
+    "startTime": 1698765400000,
+    "averageSpeed": 2850000
+  },
+  {
+    "Id": 2,
+    "totalFiles": 1,
+    "totalSize": 5242880,
+    "uploadedSize": 5242880,
+    "startTime": 1698751800000,
+    "averageSpeed": 1920000
+  }
+]
