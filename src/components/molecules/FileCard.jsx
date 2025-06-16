@@ -66,21 +66,19 @@ const FileCard = ({
             </h3>
             <div className="flex items-center gap-2">
               {getStatusIcon()}
-              {showActions && isHovered && (
+{showActions && isHovered && (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex gap-1"
                 >
-                  {isImage && (
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      icon="Eye"
-                      onClick={() => onPreview?.(file)}
-                      className="p-1"
-                    />
-                  )}
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    icon="Eye"
+                    onClick={() => onPreview?.(file)}
+                    className="p-1"
+                  />
                   <Button
                     variant="ghost"
                     size="sm"
